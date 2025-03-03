@@ -1,0 +1,41 @@
+pipeline {
+    agent any
+
+    stages{
+       stage('System details'){
+        steps{
+            echo "This will display my server details"
+           }
+        }
+    stage('Display the server name'){
+        steps{
+            sh 'uname'
+        }
+    }
+    
+    stage('Dispaly server date'){
+        steps{
+            sh 'date'
+        }
+    }
+    stage('Display memory usage'){
+        steps{
+            sh 'free -m'
+        }
+    }
+
+    stage('Display disk usage'){
+        steps{
+            sh 'df -h'
+        }
+    }
+     stage('Display CPU usage'){
+        steps{
+            sh 'lscpu'
+        }
+     }
+    }
+    }
+
+
+
