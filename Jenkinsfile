@@ -9,7 +9,7 @@ pipeline{
     stages{
         stage('Git-checkout'){
             steps{
-                git branch: 'master' , url: 'https://github.com/manjukolkar/web-application.git'
+                git branch: 'master' , url: 'https://github.com/sunilannigeri/demo.git'
             }
         }
         stage('Code Compile'){
@@ -24,13 +24,13 @@ pipeline{
         }
         stage('Build and tag'){
             steps{
-                sh 'docker build -t manjukolkar007/puneet-sir .'
+                sh 'docker build -t sunilannigeri/puneet-sir .'
             }
         }
         stage('Containerisation'){
             steps{
                 sh '''
-                docker run -it -d --name c7 -p 9006:8080 manjukolkar007/puneet-sir 
+                docker run -it -d --name c7 -p 9003:8080 sunilannigeri/puneet-sir 
                 '''
             }
         }
@@ -45,7 +45,7 @@ pipeline{
         }
          stage('Pushing image to repository'){
             steps{
-                sh 'docker push manjukolkar007/puneet-sir'
+                sh 'docker push sunilannigeri/puneet-sir'
             }
         }
         
