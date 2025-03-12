@@ -13,7 +13,7 @@ pipeline {
         }
     }
     
-    step('Dispaly server date'){
+    stage('Dispaly server date'){
         steps{
             sh 'date'
         }
@@ -24,10 +24,17 @@ pipeline {
         }
     }
 
-    step('Display disk usage'){
+    stage('Display disk usage'){
         steps{
             sh 'df -h'
         }
+    }
+
+    stage('Dispay cpu usage'){
+        steps{
+            sh 'lscpu'
+      }
+
     }
 
     }
